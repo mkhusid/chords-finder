@@ -1,0 +1,6 @@
+ipykernel
+numpy
+pyaudio
+scipy
+librosa
+pyspark
