@@ -17,10 +17,10 @@ def plot_roc(predictions_df, classes):
     # Plot ROC for each class
     plt.figure(figsize=(10, 8))
 
-    for class_index in classes:
+    for class_id, class_name in enumerate(classes):
         # Extract true labels and predicted probabilities for the current class
-        true_labels = (predictions_df["genre_id"] == class_index).astype(int)  # Binarize labels
-        probabilities = predictions_df["probability"].apply(lambda x: x[class_index])
+        true_labels = (predictions_df["genre_id"] == class_id).astype(int)
+        probabilities = predictions_df["probability"].apply(lambda x: x[class_id])
 
         # Sort probabilities and compute TPR/FPR at different thresholds
         thresholds = np.sort(probabilities)
@@ -42,8 +42,8 @@ def plot_roc(predictions_df, classes):
         sorted_tpr = [x[1] for x in fpr_tpr]
 
         # Plot the ROC curve
-        plt.plot(fpr, tpr, 
-            label=f"Class {class_index} (AUC: {np.trapezoid(sorted_tpr, sorted_fpr):.2f})")
+        plt.plot(fpr, tpr,
+                 label=f"Class {class_name} (AUC: {np.trapz(sorted_tpr, sorted_fpr):.2f})")
 
     # Add plot details
     plt.plot([0, 1], [0, 1], 'k--', label="Random Classifier")  # Diagonal

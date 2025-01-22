@@ -45,6 +45,7 @@ class ChordsAnalizer:
         self.templates, self.chords = recognizer.get_chord_templates()
         self.recorded_data = bytes()
         self.rows = []
+        self.record_name = None
         self.initialize_audio_stream()
 
     def initialize_audio_stream(self):
@@ -127,6 +128,7 @@ class ChordsAnalizer:
         self.writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         self.writer.writeheader()
         self.rows = []
+        self.record_name = record_name
 
         while self.stream.is_active():
             self._write_chords(
@@ -137,7 +139,7 @@ class ChordsAnalizer:
     def save_record(self):
         ''' Save final CSV and audio for the record. '''
         # pylint: disable=no-member
-        output_path_wav = "./recorded/output.wav"
+        output_path_wav = f"./recorded/{self.record_name}.wav"
         with wave.open(output_path_wav, "wb") as wf:
             wf.setnchannels(CHANNELS)
             wf.setsampwidth(self.pa.get_sample_size(pyaudio.paInt16))

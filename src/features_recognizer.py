@@ -1,4 +1,4 @@
-'''WIP'''
+''' This module contains FeaturesRecognizer class for recognizing chords and extracting music features. '''
 import numpy as np
 import librosa
 from src.chords_templates import MAJOR_CHORDS_TEMPLATES, MINOR_CHORDS_TEMPLATES
