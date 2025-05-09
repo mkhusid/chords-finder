@@ -5,7 +5,7 @@ This repository contains a set of Jupyter notebooks and Python modules for vario
 
 ## Author
 
-Maintained by **Maksym Khusid**, a Software Engineer and MA student of Kyiv Polytechnic Institute.
+Maintained by **Maksym Khusid**, a Senior Software Engineer and MA student of Kyiv Polytechnic Institute.
 
 ## General Info
 
