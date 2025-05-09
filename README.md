@@ -1,7 +1,5 @@
 # Music Chords Analysis Platform
 
-# Music Chords Analysis Platform
-
 This repository contains a set of Jupyter notebooks and Python modules for various music analysis tasks. 
 <br/>Below are the details and instructions on how to use each component.
 
